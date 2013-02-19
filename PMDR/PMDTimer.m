@@ -75,6 +75,9 @@ static NSInteger const PMDBreakingInterval = 5 * 60;
 
 - (void)start
 {
+    if (self.timer) {
+        [self.timer invalidate];
+    }
     self.phase = PMDPhaseWorking;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0
                                                   target:self
